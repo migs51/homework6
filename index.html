@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Weather Forecast</title>
+
+<!--link to bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+
+<body>
+    
+    <header class="navbar navbar-dark bg-dark position-relative">
+       <h1 class="text-center" style="color: white;">Weather Dashboard</h1>
+       
+
+    </header>
+
+    <container>
+        
+        
+        
+        <div class="row max-width: 100%">
+            <div class="col-3 border-right border-bottom border-dark h-100 d-inline-block bg-light ml-3 float-left mh-100 ">
+                <div class="row">
+                    <form class="form-inline my-2 my-lg-0">
+                        <h5>Search for a City</h5>
+                        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="row mb-400px" id="cities">
+
+                </div>
+            </div>
+            <div class="col-8 float-left mw-100">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body" id="cityWeather">
+                              This is some text within a card body.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" id="5day">
+
+                    </div>
+                </div>
+            </div>
+            
+     
+        
+
+
+    </container>
+
+
+
+<!--jquery and bootstrap links-->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<!--link to logic script file-->
+<script src="script.js"></script>
+</body>
+</html>
