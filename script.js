@@ -15,6 +15,21 @@ $(document).ready(function(){
         newDiv = $("<div>");
         cityDiv = newDiv.text(userInput);
         cityArea.append(cityDiv);
+        console.log(cityDiv);
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ userInput +"&appid=fef78c8268ea7a4b885c42dcd03e1dd8";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response){ 
+            console.log(response);
+            console.log(response.name);
+            console.log(response.main.temp);
+            console.log(response.main.humidity);
+            console.log(response.wind.speed);
+            console.log(response.coord.lon);
+            console.log(response.coord.lat);
+        })
+    
 
         // for (var i = 0; i < cityArray.length; i++){
         //     newDiv = $("<div>");
@@ -23,6 +38,28 @@ $(document).ready(function(){
 
     
         // }
+    })
+
+    
+    var indexURL = "https://api.openweathermap.org/data/2.5/uvi?appid=fef78c8268ea7a4b885c42dcd03e1dd8&lat=30.27&lon=-97.74";
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=Austin&appid=fef78c8268ea7a4b885c42dcd03e1dd8"
+    var lat = "";
+    var lon = "";
+    
+    $.ajax({
+        url: indexURL,
+        method: "GET"
+    }).then(function(response){ 
+        console.log(response);
+        
+    })
+
+    $.ajax({
+        url: fiveDayURL,
+        method: "GET"
+    }).then(function(response){ 
+        console.log(response);
+      
     })
 
    
