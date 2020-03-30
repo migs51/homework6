@@ -3,6 +3,7 @@ $(document).ready(function(){
     var citySearch = $(".form-control");
     var searchButton = $(".btn");
     var cityArea = $("#cities");
+    var cityWeather = $("#cityWeather");
     // var cityArray = [];
 
     searchButton.click(function(event){
@@ -22,10 +23,10 @@ $(document).ready(function(){
             method: "GET"
         }).then(function(response){ 
             console.log(response);
-            console.log(response.name);
-            console.log(response.main.temp);
-            console.log(response.main.humidity);
-            console.log(response.wind.speed);
+            cityWeather.append(response.name);
+            cityWeather.append(response.main.temp);
+            cityWeather.append(response.main.humidity);
+            cityWeather.append(response.wind.speed);
             console.log(response.coord.lon);
             console.log(response.coord.lat);
         })
