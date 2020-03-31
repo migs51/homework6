@@ -55,12 +55,57 @@ $(document).ready(function(){
         
     })
 
+    var sumDay1 = 0;
+    var sumDay2 = 0;
+    var sumDay3 = 0;
+    var sumDay4 = 0;
+    var sumDay5 = 0;
+
     $.ajax({
         url: fiveDayURL,
         method: "GET"
     }).then(function(response){ 
-        console.log(response);
-      
+        fiveDayTemp = response.list;
+        console.log(fiveDayTemp);
+        
+        for (var i = 0; i < fiveDayTemp.length - 32; i++){
+            sumDay1 += fiveDayTemp[i].main.temp;  
+        }
+        console.log(sumDay1);
+        var day1Avg = sumDay1 /8;
+        console.log(day1Avg);
+
+        console.log("==============================");
+        for (var i = 8; i < fiveDayTemp.length - 24; i++){
+            sumDay2 += fiveDayTemp[i].main.temp;
+        }
+        console.log(sumDay2);
+        var day2Avg = sumDay2 /8;
+        console.log(day2Avg);
+
+        console.log("==============================");
+        for (var i = 16; i < fiveDayTemp.length - 16; i++){
+            sumDay3 += fiveDayTemp[i].main.temp;
+        }
+        console.log(sumDay3);
+        var day3Avg = sumDay3 /8;
+        console.log(day3Avg);
+
+        console.log("==============================");
+        for (var i = 24; i < fiveDayTemp.length - 8; i++){
+            sumDay4 += fiveDayTemp[i].main.temp;
+        }
+        console.log(sumDay4);
+        var day4Avg = sumDay4 /8;
+        console.log(day4Avg);
+
+        console.log("==============================");
+        for (var i = 32; i < fiveDayTemp.length; i++){
+            sumDay5 += fiveDayTemp[i].main.temp;
+        }
+        console.log(sumDay5);
+        var day5Avg = sumDay5 /8;
+        console.log(day5Avg);
     })
 
    
