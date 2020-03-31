@@ -34,9 +34,14 @@ $(document).ready(function(){
         }).then(function(response){ 
             console.log(response);
             cityWeather.append(response.name);
-            cityWeather.append((response.main.temp - 273.15) *1.8 + 32);
-            cityWeather.append(response.main.humidity);
-            cityWeather.append(response.wind.speed);
+            currentCityWeather = (response.main.temp - 273.15) *1.8 + 32;
+            cityWeather.append(currentCityWeather.toFixed(2));
+            cityHumidity = response.main.humidity;
+            cityWeather.append(cityHumidity.toFixed(2));
+            console.log("City Humidity: " + cityHumidity);
+            cityWindSpeed = response.wind.speed;
+            cityWeather.append(cityWindSpeed.toFixed(2));
+            console.log("Wind Speed: " + cityWindSpeed);
             var cityLon = response.coord.lon;
             var cityLat = response.coord.lat;
 
@@ -69,8 +74,8 @@ $(document).ready(function(){
             }
           
             var day1Avg = (sumDay1 /8 -273.15) * 1.8 +32 ;
-            console.log(day1Avg);
-            fiveDayForecast.append(day1Avg);
+            console.log(day1Avg.toFixed(2));
+            fiveDayForecast.append(day1Avg.toFixed(2));
     
             console.log("==============================");
             for (var i = 8; i < fiveDayTemp.length - 24; i++){
@@ -79,7 +84,7 @@ $(document).ready(function(){
         
             var day2Avg = (sumDay2 /8 -273.15) * 1.8 +32;
             console.log(day2Avg);
-            fiveDayForecast.append(day2Avg);
+            fiveDayForecast.append(day2Avg.toFixed(2));
     
             console.log("==============================");
             for (var i = 16; i < fiveDayTemp.length - 16; i++){
@@ -88,7 +93,7 @@ $(document).ready(function(){
           
             var day3Avg = (sumDay3 /8 -273.15) * 1.8 + 32;
             console.log(day3Avg);
-            fiveDayForecast.append(day3Avg);
+            fiveDayForecast.append(day3Avg.toFixed(2));
     
             console.log("==============================");
             for (var i = 24; i < fiveDayTemp.length - 8; i++){
@@ -97,7 +102,7 @@ $(document).ready(function(){
             
             var day4Avg = (sumDay4 /8 - 273.15) * 1.8 + 32;
             console.log(day4Avg);
-            fiveDayForecast.append(day4Avg);
+            fiveDayForecast.append(day4Avg.toFixed(2));
     
             console.log("==============================");
             for (var i = 32; i < fiveDayTemp.length; i++){
@@ -106,7 +111,7 @@ $(document).ready(function(){
             
             var day5Avg = (sumDay5 /8 - 273.15) * 1.8 + 32;
             console.log(day5Avg);
-            fiveDayForecast.append(day5Avg);
+            fiveDayForecast.append(day5Avg.toFixed(2));
         })
     
 
