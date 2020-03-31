@@ -15,6 +15,8 @@ $(document).ready(function(){
 
     //moment JS to populate dates for cityWeather Div and fiveDayForecast cards
     //set and get local storage for each user inputted city. make city clickable to get key value pairs.
+    //add icon to represent weather conditions
+    //change color of UV index that indicates if the conditions are favorable, moderate or severe
 
     //click event for my city search bar
     searchButton.click(function(event){
