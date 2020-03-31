@@ -1,29 +1,33 @@
 $(document).ready(function(){
-
+    //Global Variables
     var citySearch = $(".form-control");
     var searchButton = $(".btn");
     var cityArea = $("#cities");
     var cityWeather = $("#cityWeather");
     var fiveDayForecast = $("#5day");
    
-
+    
     var sumDay1 = 0;
     var sumDay2 = 0;
     var sumDay3 = 0;
     var sumDay4 = 0;
     var sumDay5 = 0;
 
+    //click event for my city search bar
     searchButton.click(function(event){
         event.preventDefault();
-        console.log("it works");
+        //capture userinput 
         userInput = citySearch.val().trim();
         console.log(userInput);
-      
+        //dynamically add city link to div below search bar
         newDiv = $("<div>");
         cityDiv = newDiv.text(userInput);
         cityArea.append(cityDiv);
         console.log(cityDiv);
+
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ userInput +"&appid=fef78c8268ea7a4b885c42dcd03e1dd8";
+
+        //ajax call to get the current weather from the user inputted city
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -37,7 +41,8 @@ $(document).ready(function(){
             var cityLat = response.coord.lat;
 
             var indexURL = "https://api.openweathermap.org/data/2.5/uvi?appid=fef78c8268ea7a4b885c42dcd03e1dd8&lat=" + cityLat + "&lon=" + cityLon;
-            
+
+            //ajax call to get UV index
             $.ajax({
                 url: indexURL,
                 method: "GET"
@@ -51,6 +56,7 @@ $(document).ready(function(){
 
         var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&appid=fef78c8268ea7a4b885c42dcd03e1dd8"
 
+        //ajax call to get 5 day temp forecast.. this API spits out the 5 day forecast in increments of 3hours. I used for loops to calculate the average for each day
         $.ajax({
             url: fiveDayURL,
             method: "GET"
