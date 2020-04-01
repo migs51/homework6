@@ -6,15 +6,18 @@
     <title>City Weather Forecast</title>
 
 <!--link to bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/> -->
+
+
 </head>
 
 <body>
     
-    <header class="navbar navbar-dark bg-dark position-relative">
-       <h1 class="text-center" style="color: white;">Weather Dashboard</h1>
-       
-
+    <header>
+       <!-- <h1 class="text-center" style="text-align: center;">Weather Dashboard</h1> -->
+       <div class="alert alert-dismissible alert-secondary">
+        <h1 style="text-align: center;">Weather Dashboard</h1>
+      </div>
     </header>
 
     <container>
@@ -39,7 +42,27 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body" id="cityWeather">
-                              
+                                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                                    <div class="card-header" id="currentDate"></div>
+                                    <div class="card-body">
+                                      <h4 class="card-title" id="currentWeather"></h4>
+                                      <p class="card-text" id="temp"> </p>
+                                      <p class="card-text" id="humidity"> </p>
+                                      <p class="card-text" id="windSpeed"> </p>
+                                      <p class="card-text" id="uv"> </p>
+                                    </div>
+                                </div>
+                                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                    <div class="card-header"></div>
+                                    <div class="card-body">
+                                      <h4 class="card-title">5 day Forecast</h4>
+                                      <p class="card-text" id="day1"></p>
+                                      <p class="card-text" id="day2"></p>
+                                      <p class="card-text" id="day3"></p>
+                                      <p class="card-text" id="day4"></p>
+                                      <p class="card-text" id="day5"></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,7 +83,11 @@
 <!--jquery and bootstrap links-->
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+<!--moment.js CDN-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <!--link to logic script file-->
 <script src="script.js"></script>
+
 </body>
 </html>
